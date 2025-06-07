@@ -4,7 +4,7 @@ pipeline {
   stages {
     stage('Clone Code') {
       steps {
-        git 'https://github.com/rajatpatra-devops/project-2-node-nginx-compose.git'
+        git branch: 'main', url: 'https://github.com/rajatpatra-devops/project-2-node-nginx-compose.git'
       }
     }
 
@@ -19,7 +19,7 @@ pipeline {
     stage('Run Docker Container') {
       steps {
         script {
-          sh 'docker run -d -p 9095:3000 rajat/project3-node:latest'
+          sh 'docker run -d -p 9095:3000 rajat/project3-node:latest || true'
         }
       }
     }
